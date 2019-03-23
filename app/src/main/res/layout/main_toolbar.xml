@@ -1,0 +1,64 @@
+
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false">
+
+        <FrameLayout
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+            android:layout_height="match_parent" />
+
+        <include layout="@layout/layout_appbar"/>
+        <include layout="@layout/layout_search"/>
+
+        <LinearLayout
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/indicator_layout"
+            android:visibility="gone"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/tab_indicator1"
+                android:layout_width="wrap_content"
+                android:minWidth="50dp"
+                android:layout_marginRight="2dp"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:id="@+id/tab_indicator2"
+                android:layout_width="wrap_content"
+                android:minWidth="50dp"
+                android:layout_marginLeft="2dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fab_bg"
+            android:visibility="gone"
+            android:clickable="true"
+            android:src="@drawable/fab_shadow_light"/>
+        
+        <include layout="@layout/layout_fab"/>
+    </android.support.design.widget.CoordinatorLayout>
+    <com.augustro.filemanager.ui.views.drawer.CustomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="@dimen/drawer_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"/>
+
+</android.support.v4.widget.DrawerLayout>
